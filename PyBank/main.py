@@ -4,7 +4,7 @@ import csv
 
 csvpath = os.path.join('Resources', 'budget_data.csv')
 
-# Set the variables to store the the data
+# Set variables to store data
 totalMonths = 0
 net = 0
 profitChanges = []
@@ -52,3 +52,15 @@ print(f"Total: ${net}")
 print(f"Average Change: ${round(average_changeInprofit, 2)}")
 print(f"Greatest Increase in Profits: {greatest_increase_date} (${greatest_increase})")
 print(f"Greatest Decrease in Profits: {greatest_decrease_date} (${greatest_decrease})")
+
+output_dir = 'analysis'
+output_path = os.path.join(output_dir, 'Results.txt')
+
+with open(output_path, "w") as outfile:
+    outfile.write("Financial Analysis\n")
+    outfile.write(f"--------------------\n")
+    outfile.write(f"Total Months: {totalMonths}\n")
+    outfile.write(f"Total: ${net}\n")
+    outfile.write(f"Average Change: ${round(average_changeInprofit, 2)}\n")
+    outfile.write(f"Greatest Increase in Profits: {greatest_increase_date} (${greatest_increase})\n")
+    outfile.write(f"Greatest Decrease in Profits: {greatest_decrease_date} (${greatest_decrease})\n")
